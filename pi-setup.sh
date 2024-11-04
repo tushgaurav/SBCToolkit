@@ -105,5 +105,27 @@ EOF
 
 echo "htoprc file updated successfully!"
 
+# Config vim
+echo "Configuring vim..."
+
+cat << EOF > ~/.vimrc
+:set number
+set nocompatible
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+EOF
+
+echo "vimrc file updated successfully!"
+
+
 echo "Setup complete!"
 echo "Your Raspberry Pi is now ready to use!"
